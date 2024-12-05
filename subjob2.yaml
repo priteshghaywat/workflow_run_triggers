@@ -1,0 +1,17 @@
+# .github/workflows/subjob2.yaml
+name: Subjob 2 Workflow
+
+on:
+  workflow_run:
+    workflows: ["Subjob 1 Workflow"]
+    types:
+      - completed
+
+jobs:
+  subjob2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Subjob 2
+        run: |
+          echo "This is child job 2"
+          date
